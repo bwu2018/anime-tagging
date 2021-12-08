@@ -18,8 +18,6 @@ import os
 import sys
 from dataclasses import dataclass, field
 from typing import Optional
-import requests
-from io import BytesIO
 
 import datasets
 import numpy as np
@@ -64,20 +62,10 @@ MODEL_CONFIG_CLASSES = list(MODEL_FOR_IMAGE_CLASSIFICATION_MAPPING.keys())
 MODEL_TYPES = tuple(conf.model_type for conf in MODEL_CONFIG_CLASSES)
 
 
-# def pil_loader(path: str):
-#     with open(path, "rb") as f:
-#         im = Image.open(f)
-#         return im.convert("RGB")
-
 def pil_loader(path: str):
-    with open(path) as f:
-        lines = f.readlines()
-    url = lines[0]
-    r = requests.get("https:" + url)
-    if r.status_code == 404:
-        return None
-    img = Image.open(BytesIO(r.content))
-    return img.convert("RGB")
+    with open(path, "rb") as f:
+        im = Image.open(f)
+        return im.convert("RGB")
 
 
 @dataclass

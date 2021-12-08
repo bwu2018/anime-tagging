@@ -1,7 +1,19 @@
-python3 run_image_classification.py \
-    --dataset_name nateraw/image-folder \
-    --train_dir anime-dataset/ \
+python run_image_classification.py \
+    --dataset_name bwu2018/anime-tagging-dataset \
     --output_dir ./outputs/ \
     --remove_unused_columns False \
     --do_train \
-    --do_eval
+    --do_eval \
+    --push_to_hub \
+    --push_to_hub_model_id vit-anime-tagging \
+    --learning_rate 2e-5 \
+    --num_train_epochs 3 \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 8 \
+    --logging_strategy steps \
+    --logging_steps 10 \
+    --evaluation_strategy epoch \
+    --save_strategy epoch \
+    --load_best_model_at_end True \
+    --save_total_limit 3 \
+    --seed 1337
