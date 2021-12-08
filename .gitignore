@@ -1,6 +1,7 @@
 all_data.csv
 anime-dataset/*
-./outputs/*
+outputs/*
+wandb/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

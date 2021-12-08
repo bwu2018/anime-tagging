@@ -5,8 +5,6 @@ python3 run_image_classification.py \
     --remove_unused_columns False \
     --do_train \
     --do_eval \
-    --push_to_hub \
-    --push_to_hub_model_id vit-anime-tagging \
     --learning_rate 2e-5 \
     --num_train_epochs 3 \
     --per_device_train_batch_size 8 \
