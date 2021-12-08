@@ -1,6 +1,7 @@
-python run_image_classification.py \
+python3 run_image_classification.py \
     --dataset_name bwu2018/anime-tagging-dataset \
     --output_dir ./outputs/ \
+    --overwrite_output_dir \
     --remove_unused_columns False \
     --do_train \
     --do_eval \

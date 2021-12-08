@@ -209,6 +209,9 @@ def main():
         task="image-classification",
     )
 
+    print("HEEEEEERRRRREEEEEEEE")
+    print(ds["train"])
+
     # If we don't have a validation split, split off a percentage of train as validation.
     data_args.train_val_split = None if "validation" in ds.keys() else data_args.train_val_split
     if isinstance(data_args.train_val_split, float) and data_args.train_val_split > 0.0:
